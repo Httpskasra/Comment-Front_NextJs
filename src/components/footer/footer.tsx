@@ -52,9 +52,9 @@ const COLUMNS: LinkColumn[] = [
   },
   {
     items: [
-      { label: "«قوانین و مقررات»", href: "/terms" },
-      { label: "«حریم خصوصی»", href: "/privacy" },
-      { label: "«ارتباط با ما»", href: "/contact" },
+      { label: "قوانین و مقررات", href: "/terms" },
+      { label: "حریم خصوصی", href: "/privacy" },
+      { label: "ارتباط با ما", href: "/contact" },
     ],
   },
 ];
