@@ -4,7 +4,7 @@ import React from "react";
 
 type Thumb = { id: string; url: string; file: File };
 
-export default function ReviewForm() {
+export default function AddComment() {
   // fields
   const [title, setTitle] = React.useState("");
   const [category, setCategory] = React.useState("");
@@ -21,7 +21,7 @@ export default function ReviewForm() {
   const [desc, setDesc] = React.useState("");
 
   // rating
-  const [rating, setRating] = React.useState(80);
+  const [rating, setRating] = React.useState(50);
 
   // checks
   const [agree, setAgree] = React.useState(false);
