@@ -51,9 +51,9 @@ export default function Footer({
   avatarSrc,
   className,
   contacts = [
-    { icon: <MailIcon className="w-5 h-5" />, label: "commm@gmail.com", href: "mailto:commm@gmail.com" },
-    { icon: <TelegramIcon className="w-5 h-5" />, label: "t.me/asdasdsd", href: "https://t.me/asdasdsd" },
-    { icon: <WhatsappIcon className="w-5 h-5" />, label: "commm@gmail.com", href: "mailto:commm@gmail.com" },
+    { icon: <MailIcon className="w-5 h-5" />, label: "amin.niazi2003@gmail.com", href: "mailto:commm@gmail.com" },
+    { icon: <TelegramIcon className="w-5 h-5" />, label: "t.me/httpkasra3773", href: "https://t.me/asdasdsd" },
+    { icon: <WhatsappIcon className="w-5 h-5" />, label: "kasrarahmanian3@gmail.com", href: "mailto:commm@gmail.com" },
     { icon: <PhoneIcon className="w-5 h-5" />, label: "+989164532683", href: "tel:+989164532683" },
   ],
   columns = [
@@ -77,73 +77,79 @@ export default function Footer({
   ],
 }: FooterProps) {
   return (
-    <footer
-      dir="rtl"
-      className={cls(
-        "mx-auto my-12 max-w-6xl rounded-[28px] bg-[#0c4a4e] text-white shadow-xl",
-        "px-6 py-8 md:px-10 md:py-10",
-        className
-      )}
-    >
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-3 items-start">
-        {/* Contacts */}
-        <ul className="space-y-4">
-          {contacts.map((c, i) => (
-            <li key={i} className="flex items-center gap-3">
-              <span className="grid place-items-center rounded-md bg-white/10 p-2">
-                {c.icon}
-              </span>
-              <a
-                href={c.href}
-                className="hover:underline decoration-white/40 underline-offset-4"
-              >
-                {c.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+<footer
+  dir="rtl"
+  className={cls(
+    "mx-auto my-12 max-w-6xl rounded-[28px] bg-[#0c4a4e] text-white shadow-xl",
+    "px-6 py-8 md:px-10 md:py-10",
+    className
+  )}
+>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
 
-        {/* Link columns */}
-        <div className="grid grid-cols-2 gap-6 text-white/90">
-          {columns.map((col, i) => (
-            <nav key={i} aria-label={col.title ?? `لینک‌های ${i + 1}`}>
-              {col.title && <p className="mb-2 font-medium">{col.title}</p>}
-              <ul className="space-y-3">
-                {col.items.map((it, k) => (
-                  <li key={k}>
-                    <Link href={it.href} className="hover:opacity-80">
-                      {it.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          ))}
-        </div>
+{/* Brand / Avatar - left */}
+<div className="flex flex-col items-center gap-3 md:col-start-1">
+  <div className="h-20 w-20 shrink-0 rounded-full bg-white/70 overflow-hidden">
+    {avatarSrc ? (
+      <Image
+        src={avatarSrc}
+        alt="Avatar"
+        width={80}
+        height={80}
+        className="h-full w-full object-cover"
+      />
+    ) : (
+      <div className="h-full w-full" />
+    )}
+  </div>
+  <p className="text-sm md:text-base text-white/90 text-center">
+    {brandLine}
+  </p>
+</div>
 
-        {/* Brand / Avatar */}
-        <div className="flex items-center justify-between md:justify-end gap-6">
-          <p className="text-sm md:text-base text-white/90">{brandLine}</p>
-          <div className="h-20 w-20 shrink-0 rounded-full bg-white/70 overflow-hidden">
-            {avatarSrc ? (
-              <Image
-                src={avatarSrc}
-                alt="Avatar"
-                width={80}
-                height={80}
-                className="h-full w-full object-cover"
-              />
-            ) : (
-              <div className="h-full w-full" />
-            )}
-          </div>
-        </div>
-      </div>
 
-      {/* Divider + bottom line */}
-      <div className="mt-8 border-t border-white/10 pt-4 text-center text-sm text-white/70">
-        © {year} — همه حقوق محفوظ است.
-      </div>
-    </footer>
+
+    {/* Link columns - center */}
+    <div className="grid grid-cols-2 gap-6 text-white/90 md:col-start-2">
+      {columns.map((col, i) => (
+        <nav key={i} aria-label={col.title ?? `لینک‌های ${i + 1}`}>
+          {col.title && <p className="mb-2 font-medium">{col.title}</p>}
+          <ul className="space-y-3">
+            {col.items.map((it, k) => (
+              <li key={k}>
+                <Link href={it.href} className="hover:opacity-80">
+                  {it.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      ))}
+    </div>
+
+    {/* Contacts - right */}
+    <ul className="space-y-4 md:col-start-3">
+      {contacts.map((c, i) => (
+        <li key={i} className="flex items-center gap-3">
+          <span className="grid place-items-center rounded-md bg-white/10 p-2">
+            {c.icon}
+          </span>
+          <a
+            href={c.href}
+            className="hover:underline decoration-white/40 underline-offset-4"
+          >
+            {c.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  {/* Divider + bottom line */}
+  <div className="mt-8 border-t border-white/10 pt-4 text-center text-sm text-white/70">
+    © {year} — همه حقوق محفوظ است.
+  </div>
+</footer>
+
   );
 }
