@@ -13,23 +13,21 @@ export default function ShareCta({
 }: ShareCtaProps) {
   return (
     <section dir="rtl" className="py-10">
-      <div className="mx-auto max-w-6xl px-4">
+      <div className="mx-auto max-w-3xl px-4">
         <div className="relative overflow-visible rounded-[28px] bg-gradient-to-br from-[#11B2EA] to-[#048FD5] px-6 py-10 text-white shadow-xl sm:px-10">
-
-    <div className="pointer-events-none absolute -top-8 right-0 sm:-top-10 sm:right-2">
-      <Image
-        src="/images/alert.png"
-        alt="alert"
-        width={140}
-        height={140}
-        className="select-none"
-      />
-    </div>
-
+          <div className="pointer-events-none  absolute -top-15 -right-15 ">
+            <Image
+              src="/images/alert.png"
+              alt="alert"
+              width={140}
+              height={140}
+              className="select-none rotate-[40deg]"
+            />
+          </div>
 
           {/* content */}
           <div className="text-center">
-            <h3 className="mx-auto max-w-3xl text-xl font-extrabold sm:text-2xl md:text-3xl leading-9">
+            <h3 className="mx-auto max-w-2xl text-xl font-extrabold sm:text-3xl md:text-3xl leading-9">
               تجربیات مهمه! همین الان به اشتراک بگذار
               <br />
               هر نظرِ تو می‌تونه به هزاران نفر کمک کنه
@@ -39,8 +37,7 @@ export default function ShareCta({
               {/* ثبت نظر */}
               <button
                 onClick={onCreateReview}
-                className="inline-flex items-center gap-2 rounded-2xl border-2 border-white/90 px-6 py-2 text-base font-medium hover:bg-white hover:text-[#0a6fb1] transition"
-              >
+                className="inline-flex items-center gap-2 rounded-2xl border-2 border-white/90 px-6 py-2 text-base font-medium hover:bg-white hover:text-[#0a6fb1] transition cursor-pointer">
                 ثبت نظر
                 <Image
                   src="/images/plus.svg" // ✅ replaced plus
@@ -53,8 +50,7 @@ export default function ShareCta({
               {/* مشاهده نظر */}
               <button
                 onClick={onSeeReviews}
-                className="inline-flex items-center gap-2 rounded-2xl border-2 border-white/90 px-6 py-2 text-base font-medium hover:bg-white hover:text-[#0a6fb1] transition"
-              >
+                className="inline-flex items-center gap-2 rounded-2xl border-2 border-white/90 px-6 py-2 text-base font-medium hover:bg-white hover:text-[#0a6fb1] transition">
                 مشاهده نظر
                 <Image
                   src="/images/eye-solid-full.svg" // ✅ replaced eye
