@@ -65,8 +65,9 @@ export default function Header({
     <div
       dir="rtl"
       className={[
+        "sticky top-2 z-50", // اضافه شد
         "mx-auto mt-4 max-w-6xl rounded-[24px] bg-[#0c4a4e] px-3 py-3 shadow-xl w-[90%]",
-        "sm:rounded-[28px] sm:px-4 sm:py-4 md:mt-6 md:px-6 md:py-5 md:rounded-[36px]",
+        "sm:rounded-[28px] sm:px-4 sm:py-4 md:mt-6 md:px-6 md:py-5 md:rounded-[36px] ",
         className || "",
       ].join(" ")}
       role="search">
