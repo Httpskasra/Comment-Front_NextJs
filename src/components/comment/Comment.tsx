@@ -35,7 +35,7 @@ export default function CommentCard({
           if (entry.isIntersecting) {
             let current = 0;
             const step = () => {
-              current += 1; // سرعت افزایش
+              current += 1;
               if (current <= targetScore) {
                 setProgress(current);
                 requestAnimationFrame(step);
@@ -44,7 +44,7 @@ export default function CommentCard({
               }
             };
             requestAnimationFrame(step);
-            observer.unobserve(entry.target); // فقط یک بار
+            observer.unobserve(entry.target);
           }
         });
       },
@@ -65,10 +65,10 @@ export default function CommentCard({
         "p-3 sm:p-4 max-w-full",
         className || "",
       ].join(" ")}>
-      {/* بالا: تصاویر + عنوان + نوار پیشرفت */}
-      <div className="grid grid-cols-[auto_1fr] gap-3">
+      {/* ردیف ۱: تصاویر + عنوان */}
+      <div className="flex items-center justify-between gap-3">
         {/* تصاویر */}
-        <div className="flex gap-2">
+        <div className="flex gap-2 shrink-0">
           {images.slice(0, 2).map((src, i) => (
             <div
               key={src + i}
@@ -84,31 +84,32 @@ export default function CommentCard({
           ))}
         </div>
 
-        {/* عنوان + Progress */}
-        <div className="flex flex-col gap-2">
-          <h3 className="text-[22px] font-extrabold text-[#00A0E9] leading-6">
-            {title}
-          </h3>
+        {/* عنوان */}
+        <h3 className="flex-1 text-right text-[20px] sm:text-[22px] font-extrabold text-[#00A0E9] leading-6">
+          {title}
+        </h3>
+      </div>
 
-          <div className="relative h-6 w-full overflow-hidden rounded-full bg-gray-200 shadow-inner">
-            <div
-              className={`h-full rounded-full transition-all duration-200 ${
-                progress < 40
-                  ? "bg-red-500"
-                  : progress < 70
-                  ? "bg-yellow-400"
-                  : "bg-green-500"
-              }`}
-              style={{ width: `${progress}%` }}
-            />
-            <span className="absolute inset-0 flex items-center justify-center text-xs font-bold text-white drop-shadow">
-              {progress}%
-            </span>
-          </div>
+      {/* ردیف ۲: ProgressBar زیرِ آن‌ها */}
+      <div className="mt-2">
+        <div className="relative h-6 w-full overflow-hidden rounded-full bg-gray-200 shadow-inner">
+          <div
+            className={`h-full rounded-full transition-all duration-200 ${
+              progress < 40
+                ? "bg-red-500"
+                : progress < 70
+                ? "bg-yellow-400"
+                : "bg-green-500"
+            }`}
+            style={{ width: `${progress}%` }}
+          />
+          <span className="absolute inset-0 flex items-center justify-center text-xs font-bold text-white drop-shadow">
+            {progress}%
+          </span>
         </div>
       </div>
 
-      {/* معایب + مزایا */}
+      {/* ردیف ۳: معایب + مزایا */}
       <div className="mt-2 grid grid-cols-2 gap-2">
         <ul className="space-y-1 pr-1">
           {cons.map((t, i) => (
@@ -132,7 +133,7 @@ export default function CommentCard({
         </ul>
       </div>
 
-      {/* توضیحات */}
+      {/* ردیف ۴: توضیحات */}
       <p className="mt-2 line-clamp-3 text-[15px] leading-6 text-gray-700">
         {description}
       </p>
