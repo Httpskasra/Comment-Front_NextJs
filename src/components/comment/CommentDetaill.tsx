@@ -141,7 +141,7 @@ export default function CommentDetail() {
           {/* ستون راست (مزایا/معایب + توضیحات) */}
           <section className="md:col-span-7 lg:col-span-8 space-y-4">
             {/* باکس‌های مزایا/معایب */}
-            <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+            <div className="grid grid-cols-2 gap-4">
               <Card title="مزایا">
                 <BulletList items={pros} variant="pros" />
               </Card>
